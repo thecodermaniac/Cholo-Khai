@@ -1,9 +1,11 @@
-import { View, Text, Image, TextInput } from 'react-native'
+import { View, Text, Image, TextInput, ScrollView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/core'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import logo from '../assets/logo.png'
 import { ChevronDownIcon, UserIcon, MagnifyingGlassCircleIcon, AdjustmentsVerticalIcon } from "react-native-heroicons/outline";
+import Categories from '../components/Categories';
+import FeatureRow from '../components/FeatureRow';
 
 
 const HomeScreen = () => {
@@ -31,11 +33,18 @@ const HomeScreen = () => {
             {/* search box */}
             <View className="flex flex-row mx-2 space-x-2 items-center pb-4">
                 <View className="flex flex-1 space-x-2 bg-gray-200 flex-row p-3 rounded-md">
-                    <MagnifyingGlassCircleIcon color="black"/>
-                    <TextInput placeholder='Ki khabe'/>
+                    <MagnifyingGlassCircleIcon color="black" />
+                    <TextInput placeholder='Ki khabe' />
                 </View>
-                <AdjustmentsVerticalIcon color="black"/>
+                <AdjustmentsVerticalIcon color="black" />
             </View>
+            <ScrollView className="bg-gray-100" contentContainerStyle={{ paddingBottom: 160 }}>
+                <Categories />
+                <FeatureRow title="Featured" description="Paid Placements for our partners" />
+                <FeatureRow title="Tasty Discount" description="Everyone's enjoying the juicy Discounts" />
+                <FeatureRow title="Offer near you!" description="Why not support your local restaurant tonight!" />
+            </ScrollView>
+
         </SafeAreaView>
 
     )
